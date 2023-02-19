@@ -1,0 +1,44 @@
+version: '3.9'
+
+services:
+
+  redis:
+    container_name: redis
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres:15.1
+    restart: always
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./server/.env.docker
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile.prod
+    env_file:
+      - ./server/.env.docker
+    restart: always
+    ports:
+      - "9000:9000"
+    depends_on:
+      - redis
+      - postgres
+
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    env_file:
+      - ./client/.env.docker
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server

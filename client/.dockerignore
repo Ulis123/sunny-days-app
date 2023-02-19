@@ -1,0 +1,15 @@
+.env.development
+.env.production
+
+.eslintrc.json
+.prettierignore
+.prettierrc
+.gitignore
+.dockerignore
+*.md
+*.log
+
+.next
+node_modules
+Dockerfile.dev
+Dockerfile.prod

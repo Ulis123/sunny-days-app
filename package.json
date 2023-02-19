@@ -1,0 +1,29 @@
+{
+  "name": "sunny-days-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:server": "npm run lint --prefix ./server",
+    "lint:client": "npm run lint --prefix ./client",
+    "format:server": "npm run format --prefix ./server",
+    "format:client": "npm run format --prefix ./client",
+    "prepare": "npx husky install",
+    "cm": "cz"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "commitizen": "^4.3.0",
+    "cz-customizable": "^7.0.0",
+    "husky": "^8.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint:server
+npm run format:server
+npm run lint:client
+npm run format:client
+
+npx --no -- commitlint --edit ${1}
