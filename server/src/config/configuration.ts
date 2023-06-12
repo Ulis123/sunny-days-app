@@ -8,6 +8,7 @@ interface INestConfig {
   redis: {
     host: string;
     port: number;
+    ttl: number;
   };
   jwtConfig: JwtModuleOptions;
   weather: { apiUrl: string; apiKey: string };
@@ -36,6 +37,7 @@ export default (): INestConfig => ({
   redis: {
     host: process.env.REDIS_HOST,
     port: parseInt(process.env.REDIS_PORT, 10) ?? 6379,
+    ttl: 5,
   },
   jwtConfig: {
     secret: process.env.JWT_SECRET,

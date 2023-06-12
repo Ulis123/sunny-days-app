@@ -11,6 +11,7 @@ services:
       - redisdata:/data
 
   postgres:
+    container_name: postgres
     image: postgres:15.1
     restart: always
     ports:
